@@ -1,22 +1,42 @@
 #include <iostream>
-using namespace std;
 #include "PlaylistNode.h"
 
 using namespace std;
 
 void PrintMenu(const string playlistTitle) {
-   /* Type your code here */
-   
+    cout << playlistTitle << " PLAYLIST MENU" << endl;
+    cout << "a - Add song" << endl;
+    cout << "d - Remove song" << endl;
+    cout << "c - Change position of song" << endl;
+    cout << "s - Output songs by specific artist" << endl;
+    cout << "t - Output total time of playlist (in seconds)" << endl;
+    cout << "o - Output full playlist" << endl;
+    cout << "q - Quit" << endl;
+    cout << endl << "Choose an option:" << endl;
 }
 
 PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headNode) {
-   /* Type your code here */
-   
+    
+    return headNode;  
 }
 
 int main() {
-   /* Type your code here */
-   
-   return 0;
+    string playlistTitle;
+    PlaylistNode* headNode = nullptr;
+
+    // Get playlist title
+    cout << "Enter playlist's title:" << endl;
+    getline(cin, playlistTitle);
+
+    char option;
+    do {
+        PrintMenu(playlistTitle);
+        cin >> option;
+        cin.ignore();
+        headNode = ExecuteMenu(option, playlistTitle, headNode);
+    } while (option != 'q');
+
+    return 0;
 }
+
 
