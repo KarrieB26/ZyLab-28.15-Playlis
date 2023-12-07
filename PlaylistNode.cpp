@@ -177,3 +177,58 @@ bool Playlist::ChangePosition(int oldPos, int newPos){
        return false;
    }
 }
+// SongsByArtist function implementation
+void Playlist::SongsByArtist(string artist){
+   if (head == NULL)
+       cout << "\nPlaylist is empty" << endl;
+   else{
+       PlaylistNode* curr = head;
+       int i = 1;
+       while (curr != NULL){
+          
+           if (curr->GetArtistName() == artist){
+              
+               cout << endl << i << "." << endl;
+               curr->PrintPlaylistNode();              
+           }
+           curr = curr->GetNext();
+           i++;
+       }
+   }
+}
+
+// TotalTime function implementation
+int Playlist::TotalTime(){
+   int total = 0;
+   PlaylistNode* curr = head;
+
+   while (curr != NULL){
+      
+       total += curr->GetSongLength();
+       curr = curr->GetNext();
+   }
+
+   return total;
+}
+
+
+// PrintList function implementation
+void Playlist::PrintList(){
+   
+   if (head == NULL)
+       cout << "\nPlaylist is empty" << endl;
+   else{
+      
+       PlaylistNode* curr = head;
+       int i = 1;
+       while (curr != NULL){
+          
+           cout << endl << i++ << "." << endl;
+           curr->PrintPlaylistNode();          
+           curr = curr->GetNext();
+           
+       }
+   }
+}
+
+
